@@ -1,0 +1,60 @@
+<!DOCTYPE html><html> <head><title>The Nether Hub</title><meta charset="utf-8"><base href="/"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><link rel="stylesheet" href="assets/css/main.css"><link rel="icon" href="images/GenesisLogo.webp"><noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript></head> <body class="is-preload"> <!-- Page Wrapper --> <div id="page-wrapper"> <!-- Header --> <header id="header"> <h1><a href="index.html">Photo Wall</a></h1> <nav> <a href="index.html#Netherhub" class="button fit">Home</a> </nav> </header> <!-- Wrapper --> <section id="wrapper"> <header> <div class="inner"> <h2>The Nether Hub</h2> </div> </header> <!-- Content --> <div class="wrapper"> <div class="inner"> <section>  <h3 class="major">Gallery</h3> <div class="box alt"> <div class="row gtr-uniform" id="gallery-images"> <div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N1.webp" alt="N1"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N10.webp" alt="N10"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N11.webp" alt="N11"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N12.webp" alt="N12"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N13.webp" alt="N13"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N14.webp" alt="N14"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N15.webp" alt="N15"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N16.webp" alt="N16"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N17.webp" alt="N17"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N18.webp" alt="N18"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N19.webp" alt="N19"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N2.webp" alt="N2"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N20.webp" alt="N20"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N21.webp" alt="N21"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N22.webp" alt="N22"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N23.webp" alt="N23"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N3.webp" alt="N3"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N4.webp" alt="N4"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N5.webp" alt="N5"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N6.webp" alt="N6"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N7.webp" alt="N7"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N8.webp" alt="N8"></span></div><div class="col-4"><span class="image fit"><img src="images/Regions/Netherhub/N9.webp" alt="N9"></span></div> </div> </div> </section> </div> </div> </section> <!-- Footer --> <section id="footer"> <div class="inner"> <ul class="copyright"> <li>✨ Bit#2222</li> <li>🌙 TheMoonTyrant#9115</li> <li>🐨 Samb2o#1455</li> <li>Special thanks to KT#7038, Kit#6292, InGator#3272, rob 誰も#2002, Southern Cross#1033, Dissy#6823</li> </ul> </div></section> </div> <!-- Scripts --> <!-- <script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script> --> <script>(function(){const images = ["N1.webp","N10.webp","N11.webp","N12.webp","N13.webp","N14.webp","N15.webp","N16.webp","N17.webp","N18.webp","N19.webp","N2.webp","N20.webp","N21.webp","N22.webp","N23.webp","N3.webp","N4.webp","N5.webp","N6.webp","N7.webp","N8.webp","N9.webp"];
+const CARDS_PER_ROW = 3;
+
+                // https://stackoverflow.com/a/19270021
+                function getRandom(arr, n) {
+                    var result = new Array(n),
+                        len = arr.length,
+                        taken = new Array(len);
+                    if (n > len)
+                        throw new RangeError("getRandom: more elements taken than available");
+                    while (n--) {
+                        var x = Math.floor(Math.random() * len);
+                        result[n] = arr[x in taken ? taken[x] : x];
+                        taken[x] = --len in taken ? taken[len] : len;
+                    }
+                    return result;
+                }
+
+                function getFullWidthIndexes(length, targetPercentage, cardsPerRow) {
+                    const nFullWidthImgs = length - cardsPerRow * ~~(
+                        (length - Math.ceil(targetPercentage * length)) / cardsPerRow
+                    )
+
+                    const indexes = [...Array(length).keys()]
+                    const selected = getRandom(indexes, nFullWidthImgs)
+                    selected.sort((a, b) => a - b)
+
+                    let past = 0
+                    for (let i=0; i<selected.length; i++) {
+                        selected[i] -= (selected[i]) % cardsPerRow - past % cardsPerRow
+                        if (i > 0 && selected[i] < selected[i-1]) {
+                            selected[i] = selected[i-1] + 1
+                        }
+                        past += 1
+                    }
+
+                    return selected
+                }
+
+                const FULL_PAGE_PERCENTAGE = 0.12
+                const VARIANCE_PERC = .1
+                const targetPerc = FULL_PAGE_PERCENTAGE * (
+                    Math.random() * VARIANCE_PERC * 2 - VARIANCE_PERC + 1
+                )
+
+                const selected = getFullWidthIndexes(images.length, targetPerc, CARDS_PER_ROW)
+                
+                const els = document.getElementById('gallery-images').children
+
+                selected.map(i => els[i]).forEach(el => {
+                    el.classList.remove(`col-${12/CARDS_PER_ROW}`);
+                    el.classList.add('col-12');
+                })
+
+            })();</script> </body> </html>

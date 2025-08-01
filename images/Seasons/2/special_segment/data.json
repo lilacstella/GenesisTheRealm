@@ -1,0 +1,22 @@
+{
+    "section_name": "Special Segment",
+    "cards_per_row": 2,
+    "card_details": {
+        "Founder.png": {
+            "caption": "Here lies a rare image of the founder of Genesis, Noetics.",
+            "alt_text": "Here lies a rare image of the founder of Genesis, Noetics."
+        },
+        "Chunk Resets 2.png": {
+            "caption": "The beginning seasons of Genesis took place around the time that Minecraft Realms was newly released back in 2016. This period was known for its many glitches and chunk resets, however, this didn't stop our members from pursuing the kind of realm they wanted to have and having fun!",
+            "alt_text": "Glitches in the realm"
+        },
+        "Inside Spawn.png": {
+            "caption": "This was the very first spawn structure to be established in Genesis! It paved the way for members to make spawn structures for every season ever since.",
+            "alt_text": "The very first realm"
+        },
+        "Nether Hub 1.png": {
+            "caption": "While there was an attempt to create a nether hub in season 1, the first proper nether hub was developed in Season 2 by Mining Addict. A member that came to play a major role in nether affairs in every season of Genesis.",
+            "alt_text": "Nether hub"
+        }
+    }
+}
