@@ -1,0 +1,69 @@
+<!DOCTYPE html><html> <head><title>Genesis</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><base href="/"><link rel="stylesheet" href="assets/css/main.css"><link rel="icon" href="images/GenesisLogo.webp"><link rel="stylesheet" href="assets/css/glide.core.min.css"><noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript></head><body class="is-preload"> <!-- Page Wrapper --> <div id="page-wrapper"> <!-- Header --> <header id="header"> <h1><a onclick="go_back()">Photo Wall</a></h1> <nav> <a onclick="go_back()" class="button fit">Home</a> </nav> </header> <!-- Wrapper --> <section id="wrapper"> <header> <div class="inner"> <h2>Season 11</h2> </div> </header> <!-- Content --> <div class="wrapper"> <div class="inner"> <section>  <h3 class="major">Gallery</h3> <div class="box alt"> <div class="row gtr-uniform" id="gallery-images"> <div class="col-4"><span class="image fit"><img src="images/Seasons/11/S111.webp" alt="S111"></span></div> </div> </div> </section> </div> </div> </section> <!-- Footer --> <section id="footer"> <div class="inner"> <ul class="copyright"> <li>✨ Bit</li> <li>🌙 TheMoonTyrant</li> <li>🐨 Samb2o</li> <li>Special thanks to KT, Kit, InGator, rob 誰も, Southern Cross, Dissy</li> </ul> </div></section> </div> <!-- Scripts --> <!-- <script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script> --> <script>(function(){const images = ["S111.webp"];
+const CARDS_PER_ROW = 3;
+
+                // https://stackoverflow.com/a/19270021
+                function getRandom(arr, n) {
+                    var result = new Array(n),
+                        len = arr.length,
+                        taken = new Array(len);
+                    if (n > len)
+                        throw new RangeError("getRandom: more elements taken than available");
+                    while (n--) {
+                        var x = Math.floor(Math.random() * len);
+                        result[n] = arr[x in taken ? taken[x] : x];
+                        taken[x] = --len in taken ? taken[len] : len;
+                    }
+                    return result;
+                }
+
+                function getFullWidthIndexes(length, targetPercentage, cardsPerRow) {
+                    const nFullWidthImgs = length - cardsPerRow * ~~(
+                        (length - Math.ceil(targetPercentage * length)) / cardsPerRow
+                    )
+
+                    const indexes = [...Array(length).keys()]
+                    const selected = getRandom(indexes, nFullWidthImgs)
+                    selected.sort((a, b) => a - b)
+
+                    let past = 0
+                    for (let i=0; i<selected.length; i++) {
+                        selected[i] -= (selected[i]) % cardsPerRow - past % cardsPerRow
+                        if (i > 0 && selected[i] < selected[i-1]) {
+                            selected[i] = selected[i-1] + 1
+                        }
+                        past += 1
+                    }
+
+                    return selected
+                }
+
+                const FULL_PAGE_PERCENTAGE = 0.12
+                const VARIANCE_PERC = .1
+                const targetPerc = FULL_PAGE_PERCENTAGE * (
+                    Math.random() * VARIANCE_PERC * 2 - VARIANCE_PERC + 1
+                )
+
+                const selected = getFullWidthIndexes(images.length, targetPerc, CARDS_PER_ROW)
+                
+                const els = document.getElementById('gallery-images').children
+
+                selected.map(i => els[i]).forEach(el => {
+                    el.classList.remove(`col-${12/CARDS_PER_ROW}`);
+                    el.classList.add('col-12');
+                })
+
+            })();</script> <script>
+                function go_back() {
+                    const qs = window.location.search;
+                    const urlParams = new URLSearchParams(qs)
+
+                    const crumb = urlParams.get('crumb');
+                    const id = urlParams.get('id')
+                    window.location.href = crumb ? `${crumb}#${id}` : 'index.html'
+                }
+            </script> </body> </html>
